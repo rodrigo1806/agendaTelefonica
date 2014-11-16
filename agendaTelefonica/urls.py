@@ -5,5 +5,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('agenda.views',
     url(r'^$', 'index'),
+    url(r'^entrar/$', 'entrar'),
+    url(r'^agenda/$', 'agenda'),
+    url(r'^salvar/$', 'salvar'),
 
 )

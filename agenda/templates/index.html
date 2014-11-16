@@ -1,5 +1,13 @@
 <html>
 	<body>
 		<h1>Agenda Telefonica</h1>
+		<br/><br/>
+		<a href="/cadastro/">Cadastro de Usuario</a><br/><br/>    
+		<form action="/entrar/" method="POST">
+         {% csrf_token %}
+         {{ loginForm.as_p }}
+         <input type="submit" value="Logar" />
+        </form>
+
 	</body>
 </html>
