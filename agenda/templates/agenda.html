@@ -3,7 +3,9 @@
 		<h1>Agenda Telefonica</h1>
 		<br/>
 		<a href="/lista/">Lista de Contatos</a>
-		<br/><br/>   
+		<br/>
+		<a href="/sair/">Sair</a>
+		<br/>   
 		<form action="/salvar/" method="POST">
          {% csrf_token %}
          {{ agendaForm.as_p }}

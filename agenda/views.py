@@ -90,4 +90,8 @@ def salvaCadastro(request):
 			cadastroForm = CadastroForm()
 			return render(request, 'cadastro.html', {'cadastroForm': cadastroForm})
 
+def sair(request):
+	logout(request)
+	return HttpResponseRedirect('/')
+
 
