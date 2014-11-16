@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from agenda.forms import AgendaForm, LoginForm, CadastroForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, logout, login as faz_login
+from agenda.models import Agenda
 
 def index(request):
 	loginForm = LoginForm()
@@ -17,7 +18,7 @@ def entrar(request):
 			if usuario is not None:
 				if usuario.is_active:
 					faz_login(request, usuario)
-					return HttpResponseRedirect('/agenda/')
+					return HttpResponseRedirect('/lista/')
 				else:
 					return render(request, 'index.html', {'form': form})
 			else:
@@ -44,4 +45,28 @@ def salvar(request):
 		agenda.save()
 		contatos = Agenda.objects.all()[0:10]
 		return render(request, 'lista.html', {'contatos': contatos})
+
+@login_required()
+def lista(request):
+	contatos = Agenda.objects.all()[0:10]
+	return render(request, 'lista.html', {'contatos': contatos})
+
+def editar(request, pk=0):
+	try:
+		agenda = Agenda.objects.get(pk=pk)
+	except:
+		return HttpResponseRedirect('/lista/')
+    
+	agendaForm = AgendaForm()
+	agendaForm.nome = agenda.nome
+	return render(request, 'agenda.html', {'agendaForm': agendaForm})
+
+def excluir(excluir, pk=0):
+	try:
+		agenda = Agenda.objects.get(pk=pk)
+		agenda.delete()
+		return HttpResponseRedirect('/lista/')
+	except:
+		return HttpResponseRedirect('/lista/')
+
 

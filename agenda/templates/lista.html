@@ -1,0 +1,31 @@
+<html>
+	<body>
+		<h1>Lista de contatos</h1>
+		  <a href="/agenda/">Cadastrar Contato</a>
+<hr>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Cidade</th>
+            <th>Telefone</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for agenda in contatos %}
+          <tr>
+            <td><a href="/editar/{{ agenda.pk }}">{{ agenda.nome }}</a></td>
+            <td>{{ agenda.sobrenome }}</td>
+            <td>{{ agenda.cidade }}</td>
+            <td>{{ agenda.telefone }}</td>
+            <td>{{ agenda.email }}</td>
+            <td><a href="/excluir/{{ agenda.pk }}">Excluir</a></td>
+          </tr>
+        {% endfor %}  
+        </tbody>
+      </table>
+
+	</body>
+</html>
