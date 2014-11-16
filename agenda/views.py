@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from agenda.forms import AgendaForm, LoginForm, CadastroForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, logout, login as faz_login
-from agenda.models import Agenda
+from agenda.models import Agenda, Login
 
 def index(request):
 	loginForm = LoginForm()
@@ -20,11 +20,11 @@ def entrar(request):
 					faz_login(request, usuario)
 					return HttpResponseRedirect('/lista/')
 				else:
-					return render(request, 'index.html', {'form': form})
+					return HttpResponseRedirect('/')
 			else:
-				return render(request, 'index.html', {'form': form})
+				return HttpResponseRedirect('/')
 		else:
-			return render(request, 'index.html', {'form': form})
+			return HttpResponseRedirect('/')
 	else:
 		return HttpResponseRedirect('/')
 
@@ -57,8 +57,7 @@ def editar(request, pk=0):
 	except:
 		return HttpResponseRedirect('/lista/')
     
-	agendaForm = AgendaForm()
-	agendaForm.nome = agenda.nome
+	agendaForm = AgendaForm(initial={'nome': agenda.nome, 'sobrenome': agenda.sobrenome, 'cidade': agenda.cidade, 'telefone': agenda.telefone, 'email': agenda.email})
 	return render(request, 'agenda.html', {'agendaForm': agendaForm})
 
 def excluir(excluir, pk=0):
@@ -68,5 +67,27 @@ def excluir(excluir, pk=0):
 		return HttpResponseRedirect('/lista/')
 	except:
 		return HttpResponseRedirect('/lista/')
+
+def cadastro(request):
+	cadastroForm = CadastroForm()
+	return render(request, 'cadastro.html', {'cadastroForm': cadastroForm})
+
+def salvaCadastro(request):
+    if request.method == 'POST':
+        loginForm = CadastroForm(request.POST)
+
+        if loginForm.is_valid():
+            login = Login(
+                username=loginForm.data['login'],
+                is_active=True)
+
+            login.set_password(loginForm.data['senha'])
+            login.save()
+
+            loginForm = LoginForm()
+            return render(request, 'index.html', {'loginForm': loginForm})
+        else:
+			cadastroForm = CadastroForm()
+			return render(request, 'cadastro.html', {'cadastroForm': cadastroForm})
 
 

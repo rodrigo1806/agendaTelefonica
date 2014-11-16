@@ -9,6 +9,8 @@ urlpatterns = patterns('agenda.views',
     url(r'^agenda/$', 'agenda'),
     url(r'^salvar/$', 'salvar'),
     url(r'^lista/$', 'lista'),
+    url(r'^cadastro/$', 'cadastro'),
+    url(r'^salvaCadastro/$', 'salvaCadastro'),
 	url(r'^editar/(?P<pk>\d+)/$', 'editar'),
 	url(r'^excluir/(?P<pk>\d+)/$', 'excluir'),
 

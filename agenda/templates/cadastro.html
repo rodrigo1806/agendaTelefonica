@@ -1,0 +1,13 @@
+<html>
+	<body>
+		<h1>Cadastro de Usuario</h1>
+		<br/><br/>
+		<a href="/">Login</a><br/><br/>    
+		<form action="/salvaCadastro/" method="POST">
+         {% csrf_token %}
+         {{ cadastroForm.as_p }}
+         <input type="submit" value="Salvar" />
+        </form>
+
+	</body>
+</html>
