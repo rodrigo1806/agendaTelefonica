@@ -35,8 +35,14 @@ def agenda(request):
 
 def salvar(request):
 	if request.method == 'POST':
+		codigo = request.POST.get('codigo', '0')
+
+		try:
+			agenda = Agenda.objects.get(pk=codigo)
+		except:
+			agenda = Agenda()
+
 		form = AgendaForm(request.POST)
-		agenda = Agenda()
 		agenda.nome = form.data['nome']
 		agenda.sobrenome = form.data['sobrenome']
 		agenda.cidade = form.data['cidade']
@@ -58,7 +64,7 @@ def editar(request, pk=0):
 		return HttpResponseRedirect('/lista/')
     
 	agendaForm = AgendaForm(initial={'nome': agenda.nome, 'sobrenome': agenda.sobrenome, 'cidade': agenda.cidade, 'telefone': agenda.telefone, 'email': agenda.email})
-	return render(request, 'agenda.html', {'agendaForm': agendaForm})
+	return render(request, 'agenda.html', {'agendaForm': agendaForm, 'agendapk': agenda.pk})
 
 def excluir(excluir, pk=0):
 	try:

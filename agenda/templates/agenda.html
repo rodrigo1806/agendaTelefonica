@@ -5,10 +5,15 @@
 		<a href="/lista/">Lista de Contatos</a>
 		<br/>
 		<a href="/sair/">Sair</a>
-		<br/>   
+		<br/> <br/>
 		<form action="/salvar/" method="POST">
+		<input type="hidden" id="codigo" name="codigo" value="{{ agendapk|default_if_none:'0' }}">
          {% csrf_token %}
-         {{ agendaForm.as_p }}
+         Nome: {{ agendaForm.nome }} <br/><br/>
+         Sobrenome: {{ agendaForm.sobrenome }} <br/><br/>
+         Cidade: {{ agendaForm.cidade }} <br/><br/>
+         Telefone: {{ agendaForm.telefone }} <br/><br/>
+         Email: {{ agendaForm.email }} <br/><br/>
          <input type="submit" value="Salvar" />
         </form>
 

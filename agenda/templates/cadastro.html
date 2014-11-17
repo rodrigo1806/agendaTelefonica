@@ -5,7 +5,9 @@
 		<a href="/">Login</a><br/><br/>    
 		<form action="/salvaCadastro/" method="POST">
          {% csrf_token %}
-         {{ cadastroForm.as_p }}
+         Login: {{ cadastroForm.login }} <br/><br/>
+         Senha: {{ cadastroForm.senha }} <br/><br/>
+         Email: {{ cadastroForm.email }} <br/><br/>
          <input type="submit" value="Salvar" />
         </form>
 
