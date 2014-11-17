@@ -14,7 +14,7 @@ def entrar(request):
 
 		if form.is_valid():
 			usuario = authenticate(username=form.data['login'], password=form.data['senha'])
-
+			request.session['loginUsuario'] = form.data['login']
 			if usuario is not None:
 				if usuario.is_active:
 					faz_login(request, usuario)
@@ -48,13 +48,15 @@ def salvar(request):
 		agenda.cidade = form.data['cidade']
 		agenda.telefone = form.data['telefone']
 		agenda.email = form.data['email']
+		#request.session.get e uma variavel global
+		agenda.loginUsuario = request.session.get('loginUsuario')
 		agenda.save()
 		contatos = Agenda.objects.all()[0:10]
 		return render(request, 'lista.html', {'contatos': contatos})
 
 @login_required()
 def lista(request):
-	contatos = Agenda.objects.all()[0:10]
+	contatos = Agenda.objects.filter(loginUsuario=request.session.get('loginUsuario'))
 	return render(request, 'lista.html', {'contatos': contatos})
 
 def editar(request, pk=0):
