@@ -3,15 +3,15 @@
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     </head>
 	<body>
-		<h2>Agenda Telefonica</h2>
-		<br/><br/>
-		<a href="/cadastro/">Cadastro de Usuario</a><br/><br/>    
-		<form action="/entrar/" method="POST">
-         {% csrf_token %}
-         Login: {{ loginForm.login }} <br/><br/>
-         Senha: {{ loginForm.senha }} <br/><br/>
-         <input type="submit" value="Logar" />
-        </form>
-
+		<div style="margin-left: 20px;">
+		  <h2>Agenda Telefonica</h2>
+		  <a href="/cadastro/">Cadastro de Usuario</a><br/><br/><br/>  
+		  <form action="/entrar/" method="POST">
+           {% csrf_token %}
+           Login: {{ loginForm.login }} <br/><br/>
+           Senha: {{ loginForm.senha }} <br/><br/>
+           <input type="submit" value="Logar" class="btn btn-success"/>
+          </form>
+        </div>
 	</body>
 </html>
