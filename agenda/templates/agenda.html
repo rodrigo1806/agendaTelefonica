@@ -3,21 +3,22 @@
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     </head>
 	<body>
+	 {% load i18n %}
 	<div style="margin-left: 20px;">
-		<h2>Agenda Telefonica</h2>
-		<a href="/lista/">Lista de Contatos</a>
+		<h2>{% trans "Agenda Telefonica" %}</h2>
+		<a href="/lista/">{% trans "Lista de Contatos" %}</a>
 		<br/>
-		<a href="/sair/">Sair</a>
+		<a href="/sair/">{% trans "Sair" %}</a>
 		<br/> <br/>
 		<form action="/salvar/" method="POST">
 		<input type="hidden" id="codigo" name="codigo" value="{{ agendapk|default_if_none:'0' }}">
          {% csrf_token %}
-         Nome: {{ agendaForm.nome }} <br/><br/>
-         Sobrenome: {{ agendaForm.sobrenome }} <br/><br/>
-         Cidade: {{ agendaForm.cidade }} <br/><br/>
-         Telefone: {{ agendaForm.telefone }} <br/><br/>
-         Email: {{ agendaForm.email }} <br/><br/>
-         <input type="submit" value="Salvar" class="btn btn-success"/>
+         {% trans "Nome:" %} {{ agendaForm.nome }} <br/><br/>
+         {% trans "Sobrenome:" %} {{ agendaForm.sobrenome }} <br/><br/>
+         {% trans "Cidade:" %} {{ agendaForm.cidade }} <br/><br/>
+         {% trans "Telefone:" %} {{ agendaForm.telefone }} <br/><br/>
+         {% trans "Email:" %} {{ agendaForm.email }} <br/><br/>
+         <input type="submit" value={% trans "Salvar" %} class="btn btn-success"/>
         </form>
       </div>
 	</body>

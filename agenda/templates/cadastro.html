@@ -3,15 +3,16 @@
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     </head>
 	<body>
+	 {% load i18n %}
 	  <div style="margin-left: 20px;">
-		<h2>Cadastro de Usuario</h2>
+		<h2>{% trans "Cadastro de Usuario" %}</h2>
 		<a href="/">Login</a><br/><br/><br/>  
 		<form action="/salvaCadastro/" method="POST">
          {% csrf_token %}
-         Login: {{ cadastroForm.login }} <br/><br/>
-         Senha: {{ cadastroForm.senha }} <br/><br/>
-         Email: {{ cadastroForm.email }} <br/><br/>
-         <input type="submit" value="Salvar" class="btn btn-success" />
+         {% trans "Login:" %} {{ cadastroForm.login }} <br/><br/>
+         {% trans "Senha:" %} {{ cadastroForm.senha }} <br/><br/>
+         {% trans "Email:" %} {{ cadastroForm.email }} <br/><br/>
+         <input type="submit" value={% trans "Salvar" %}  class="btn btn-success" />
         </form>
       </div>
 	</body>

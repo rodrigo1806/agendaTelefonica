@@ -3,20 +3,21 @@
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     </head>
 	<body>
+	 {% load i18n %}
 	<div style="margin-left: 20px;">
-	  <h2>Lista de contatos</h2>
-	  <a href="/sair/">Sair</a>
+	  <h2>{% trans "Lista de contatos" %}</h2>
+	  <a href="/sair/">{% trans "Sair" %}</a>
 	  <br/>
-	  <a href="/agenda/">Cadastrar Contato</a>
+	  <a href="/agenda/">{% trans "Cadastrar Contato" %}</a>
 	<hr><hr>
 	  <table class="table table-hover">
         <thead>
           <tr>
-            <th>Nome</th>
-            <th>Sobrenome</th>
-            <th>Cidade</th>
-            <th>Telefone</th>
-            <th>Email</th>
+            <th>{% trans "Nome" %}</th>
+            <th>{% trans "Sobrenome" %}</th>
+            <th>{% trans "Cidade" %}</th>
+            <th>{% trans "Telefone" %}</th>
+            <th>{% trans "Email" %}</th>
           </tr>
         </thead>
         <tbody>
@@ -27,7 +28,7 @@
             <td>{{ agenda.cidade }}</td>
             <td>{{ agenda.telefone }}</td>
             <td>{{ agenda.email }}</td>
-            <td><a href="/excluir/{{ agenda.pk }}">Excluir</a></td>
+            <td><a href="/excluir/{{ agenda.pk }}">{% trans "Excluir" %}</a></td>
           </tr>
         {% endfor %}  
         </tbody>
