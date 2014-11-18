@@ -14,5 +14,6 @@ urlpatterns = patterns('agenda.views',
     url(r'^salvaCadastro/$', 'salvaCadastro'),
 	url(r'^editar/(?P<pk>\d+)/$', 'editar'),
 	url(r'^excluir/(?P<pk>\d+)/$', 'excluir'),
+	url(r'^i18n/', include('django.conf.urls.i18n')),
 
 )
