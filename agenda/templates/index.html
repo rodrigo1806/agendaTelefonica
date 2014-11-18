@@ -6,6 +6,19 @@
 	 {% load i18n %}
 		<div style="margin-left: 20px;">
 		  <h2>{% trans "Agenda Telefonica" %}</h2>
+		  <a href="#" onclick="document.setLangEnglish.submit();return false;">English </a>
+          <form name="setLangEnglish" action="/i18n/setlang/" method="POST">
+           {% csrf_token %}
+           <input name="next" type="hidden" value="/" />
+           <input name="language" type="hidden" value="en" />
+          </form>
+          <a href="#" onclick="document.setLangPortugues.submit();return false;">Português </a>
+          <form name="setLangPortugues" action="/i18n/setlang/" method="POST">
+           {% csrf_token %}
+           <input name="next" type="hidden" value="/" />
+           <input name="language" type="hidden" value="pt-br" />
+           </form>
+           <br />
 		  <a href="/cadastro/">{% trans "Cadastro de Usuario" %}</a><br/><br/><br/>  
 		  <form action="/entrar/" method="POST">
            {% csrf_token %}

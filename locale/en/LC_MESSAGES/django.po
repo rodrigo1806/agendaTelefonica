@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-18 18:50-0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\agenda\templates\agenda.html:8 .\agenda\templates\index.html:8
+msgid "Agenda Telefonica"
+msgstr "Telephone Book"
+
+#: .\agenda\templates\agenda.html:9 .\agenda\templates\lista.html:8
+msgid "Lista de Contatos"
+msgstr "Contact List"
+
+#: .\agenda\templates\agenda.html:11 .\agenda\templates\lista.html:9
+msgid "Sair"
+msgstr "Exit"
+
+#: .\agenda\templates\agenda.html:16
+msgid "Nome:"
+msgstr "Name"
+
+#: .\agenda\templates\agenda.html:17
+msgid "Sobrenome:"
+msgstr "Last Name"
+
+#: .\agenda\templates\agenda.html:18
+msgid "Cidade:"
+msgstr "City"
+
+#: .\agenda\templates\agenda.html:19
+msgid "Telefone:"
+msgstr "Phone"
+
+#: .\agenda\templates\agenda.html:20 .\agenda\templates\cadastro.html:14
+msgid "Email:"
+msgstr "Email"
+
+#: .\agenda\templates\agenda.html:21 .\agenda\templates\cadastro.html:15
+msgid "Salvar"
+msgstr "Save"
+
+#: .\agenda\templates\cadastro.html:8 .\agenda\templates\index.html:22
+msgid "Cadastro de Usuario"
+msgstr "User Account"
+
+#: .\agenda\templates\cadastro.html:12 .\agenda\templates\index.html:25
+msgid "Login:"
+msgstr "Login"
+
+#: .\agenda\templates\cadastro.html:13 .\agenda\templates\index.html:26
+msgid "Senha:"
+msgstr "Password"
+
+#: .\agenda\templates\index.html:27
+msgid "Logar"
+msgstr "Login"
+
+#: .\agenda\templates\lista.html:11
+msgid "Cadastrar Contato"
+msgstr "User Account"
+
+#: .\agenda\templates\lista.html:16
+msgid "Nome"
+msgstr "Name"
+
+#: .\agenda\templates\lista.html:17
+msgid "Sobrenome"
+msgstr "Last Name"
+
+#: .\agenda\templates\lista.html:18
+msgid "Cidade"
+msgstr "City"
+
+#: .\agenda\templates\lista.html:19
+msgid "Telefone"
+msgstr "Phone"
+
+#: .\agenda\templates\lista.html:20
+msgid "Email"
+msgstr "Email"
+
+#: .\agenda\templates\lista.html:31
+msgid "Excluir"
+msgstr "Delete"
